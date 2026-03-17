@@ -105,7 +105,7 @@ body::before {
 .question-mark {
   font-family: 'Schoolbell', cursive;
   font-size: 16rem;
-  color: #f0a898;
+  color: #FFBFBF;
   line-height: 1;
   animation: bobble 1.4s ease-in-out infinite;
   user-select: none;
@@ -146,17 +146,17 @@ body::before {
 
 .flip-hint {
   font-family: 'Kiwi Maru', serif;
-  font-size: 0.9rem;
-  color: #3a2f45;
+  font-size: 0.8rem;
+  color: #9b7b8e;
   letter-spacing: 0.08em;
   animation: pulse 2s ease-in-out infinite;
   position: relative;
   z-index: 1;
-  border: 1.5px solid #3a2f45;
   padding: 0.6rem 1.8rem;
-  border-radius: 99px;
   background: transparent;
+  margin-top: 3rem;
 }
+
 
 @keyframes pulse {
   0%, 100% { opacity: 1; }
@@ -172,15 +172,16 @@ body::before {
 
 .result-quote {
   font-family: 'Kiwi Maru', serif;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   font-style: italic;
   color: #9b7b8e;
+  margin-bottom: 1rem;
 }
 
 .divider {
   width: 48px;
   height: 2px;
-  background: #f9d5c8;
+  background: #FFBFBF;
   border-radius: 99px;
   margin: 0.2rem auto;
 }
@@ -203,7 +204,7 @@ body::before {
 }
 
 .trait {
-  background: #f9d5c8;
+  background: #FFBFBF;
   color: #3a2f45;
   font-size: 0.75rem;
   font-weight: 700;
@@ -214,20 +215,19 @@ body::before {
 
 .btn-retake {
   display: inline-block;
-  padding: 0.75rem 2.2rem;
-  border: 1.5px solid #3a2f45;
+  margin-top: 4rem;
+  padding: 0.75rem 2.4rem;
+  border: 1px solid #3a2f45;
   border-radius: 99px;
-  font-family: 'Nunito', sans-serif;
-  font-size: 0.88rem;
-  font-weight: 700;
+  font-family: 'Kiwi Maru', serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+  background: #D6D35E;
   color: #3a2f45;
   text-decoration: none;
-  background: transparent;
-  transition: background 0.2s, color 0.2s;
-  margin-top: 1rem;
+  transition: transform 0.2s;
 }
 
 .btn-retake:hover {
-  background: #3a2f45;
-  color: #fdf6f0;
+  transform: scale(1.04);
 }

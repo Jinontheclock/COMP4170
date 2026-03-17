@@ -157,7 +157,7 @@ body::before {
 .btn-nav:hover {
   opacity: 0.5;
   background: transparent;
-  color: #f9a898;
+  color: #48434e;
 }
 
 [data-q="1"] .option input[type="radio"]:checked + span { background: #FFBFBF; border-color: #FFBFBF; } /* pink */

@@ -1,0 +1,85 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background-color: #FCF8EF;
+  font-family: 'Kiwi Maru', serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, #e8d5cc 1px, transparent 1px);
+  background-size: 28px 28px;
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.scene {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 620px;
+}
+
+.card {
+  background: #fff9f5;
+  border: 1.5px solid #f0e0d8;
+  border-radius: 28px;
+  box-shadow: 0 8px 40px rgba(180, 130, 110, 0.1);
+  padding: 3.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  text-align: center;
+}
+
+.eyebrow {
+  font-family: 'Kiwi Maru', serif;
+  font-size: 0.85rem;
+  color: #9b7b8e;
+  letter-spacing: 0.04em;
+}
+
+.title {
+  font-family: 'Schoolbell', cursive;
+  font-size: 2.5rem;
+  color: #3a2f45;
+  line-height: 1.2;
+  margin: 3rem 0 2rem;
+}
+
+.subtitle {
+  font-family: 'Kiwi Maru', serif;
+  font-size: 0.9rem;
+  color: #7a5f72;
+  line-height: 1.75;
+  max-width: 400px;
+  margin-bottom: 4rem;
+}
+
+.btn-start {
+  display: inline-block;
+  margin-top: 0.8rem;
+  padding: 0.75rem 2.4rem;
+  border: 1px solid #3a2f45;
+  border-radius: 99px;
+  font-family: 'Kiwi Maru', serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+  background: #D6D35E;
+  color: #3a2f45;
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+
+.btn-start:hover {
+  transform: scale(1.04);
+}

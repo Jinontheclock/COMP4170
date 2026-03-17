@@ -21,7 +21,7 @@ app.use(express.static("public"));
 app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
-  res.redirect("/question/1");
+  res.render("title");
 });
 
 app.get("/question/:num", (req, res) => {
