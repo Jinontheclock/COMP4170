@@ -1,6 +1,6 @@
 const animals = {
   graphic_designer: {
-    title: "Graphic Design Octopus",
+    title: "Graphic Designer Octopus",
     image: "octopus.png",
     quote: "Can you make the logo bigger?",
     description: "You feel things in hex codes. You have 47 browser tabs of inspiration and have named them all. You've accepted that clients will never understand what you do. You cope through Pinterest boards and passive-aggressive font choices.",
