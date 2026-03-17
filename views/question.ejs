@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Question <%= num %> — Which Tech Animal Are You?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Schoolbell&family=Kiwi+Maru:wght@400&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/question.css">
+</head>
+<body>
+  <div class="scene">
+    <div class="card" data-q="<%= num %>">
+      <div class="progress-bar-wrap">
+        <div class="progress-bar" style="width: <%= (num / total) * 100 %>%"></div>
+      </div>
+      <p class="progress-label"><%= num %> / <%= total %></p>
+
+      <div class="animal-wrap">
+        <img src="/images/<%= question.animal %>" alt="quiz animal" />
+      </div>
+
+      <p class="question-text"><%= question.text %></p>
+
+      <form method="POST" action="/question/<%= num %>">
+        <input type="hidden" name="prevAnswers" value="<%= answers.join(',') %>" />
+
+        <div class="options">
+          <% question.answers.forEach(function(opt, i) { %>
+            <label class="option">
+              <input type="radio" name="answer" value="<%= opt.type %>" required />
+              <span><%= opt.text %></span>
+            </label>
+          <% }); %>
+        </div>
+
+        <div class="nav">
+          <% if (num > 1) { %>
+            <a href="/question/<%= num - 1 %>?answers=<%= answers.slice(0, -1).join(',') %>" class="btn-nav">&lt; Back</a>
+          <% } else { %>
+            <a href="/" class="btn-nav">&lt; Back</a>
+          <% } %>
+          <button type="submit" class="btn-nav btn-next">Next &gt;</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</body>
+</html>

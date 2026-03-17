@@ -1,0 +1,168 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background-color: #FCF8EF;
+  font-family: 'Kiwi Maru', serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, #e8d5cc 1px, transparent 1px);
+  background-size: 28px 28px;
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.scene {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 620px;
+}
+
+.card {
+  background: #fff9f5;
+  border: 1.5px solid #f0e0d8;
+  border-radius: 28px;
+  box-shadow: 0 8px 40px rgba(180, 130, 110, 0.1);
+  padding: 2rem 2.5rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.4rem;
+}
+
+/* Progress bar */
+.progress-bar-wrap {
+  width: 100%;
+  height: 6px;
+  background: #f0e0d8;
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: #f9a898;
+  border-radius: 99px;
+  transition: width 0.4s ease;
+}
+
+.progress-label {
+  font-family: 'Kiwi Maru', serif;
+  font-size: 0.78rem;
+  color: #9b7b8e;
+  align-self: flex-end;
+  margin-top: -0.8rem;
+}
+
+/* Animal */
+.animal-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.animal-wrap img {
+  width: 280px;
+  height: 280px;
+  object-fit: contain;
+  animation: bobble 3.5s ease-in-out infinite;
+}
+
+@keyframes bobble {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+
+
+/* Question text */
+.question-text {
+  font-family: 'Schoolbell', serif;
+  font-size: 1.3rem;
+  color: #3a2f45;
+  text-align: center;
+  line-height: 1.7;
+  max-width: 480px;
+}
+
+/* Answer options */
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 480px;
+}
+
+.option {
+  display: flex;
+  cursor: pointer;
+}
+
+.option input[type="radio"] {
+  display: none;
+}
+
+.option span {
+  width: 100%;
+  padding: 0.85rem 1.8rem;
+  border: 1.5px solid #d4bfb8;
+  border-radius: 99px;
+  font-family: 'Kiwi Maru', serif;
+  font-size: 0.8rem;
+  color: #3a2f45;
+  line-height: 1.5;
+  text-align: center;
+  transition: background 0.18s, border-color 0.18s;
+}
+
+
+.option:hover span {
+  border-color: #f9a898;
+}
+
+/* Navigation */
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.btn-nav {
+  padding: 0.65rem 1.8rem;
+  border: none;
+  border-radius: 99px;
+  font-family: 'Schoolbell', cursive;
+  font-size: 1rem;
+  color: #3a2f45;
+  text-decoration: none;
+  background: transparent;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn-nav:hover {
+  opacity: 0.5;
+  background: transparent;
+  color: #f9a898;
+}
+
+[data-q="1"] .option input[type="radio"]:checked + span { background: #FFBFBF; border-color: #FFBFBF; } /* pink */
+[data-q="2"] .option input[type="radio"]:checked + span { background: #7FB0E8; border-color: #7FB0E8; } /* blue */
+[data-q="3"] .option input[type="radio"]:checked + span { background: #D6D35E; border-color: #D6D35E; } /* green */
+[data-q="4"] .option input[type="radio"]:checked + span { background: #D0CBEB; border-color: #D0CBEB; } /* lavender */
+[data-q="5"] .option input[type="radio"]:checked + span { background: #FFBFBF; border-color: #f9a898; } /* pink again */
+[data-q="6"] .option input[type="radio"]:checked + span { background: #F5D244; border-color: #e0c840; } /* yellow */
