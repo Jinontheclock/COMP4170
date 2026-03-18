@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>You are the <%= result.title %> — Which Tech Animal Are You?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Schoolbell&family=Kiwi+Maru:wght@400&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/result.css">
+</head>
+<body>
+
+  <div class="scene">
+    <div class="card" id="card">
+
+     <div class="card-front">
+  <p class="eyebrow">Which tech animal are you?</p>
+  <div class="question-mark">?</div>
+  <p class="flip-hint">Tap to reveal</p>
+</div>
+
+      <div class="card-back">
+        <div class="animal-wrap-main">
+  <img src="/images/<%= result.image %>" alt="<%= result.title %>" />
+</div>
+        <h1 class="result-title"><%= result.title %></h1>
+        <p class="result-quote">"<%= result.quote %>"</p>
+        <div class="divider"></div>
+        <p class="result-desc"><%= result.description %></p>
+        <div class="traits">
+          <% result.traits.forEach(function(trait) { %>
+            <span class="trait"><%= trait %></span>
+          <% }); %>
+        </div>
+        <a href="/" class="btn-retake">Retake the quiz</a>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('card').addEventListener('click', function() {
+      this.classList.toggle('flipped');
+    });
+  </script>
+
+</body>
+</html>

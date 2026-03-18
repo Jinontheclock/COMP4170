@@ -1,0 +1,177 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background-color: #FCF8EF;
+  font-family: 'Kiwi Maru', serif;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, #e8d5cc 1px, transparent 1px);
+  background-size: 28px 28px;
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.scene {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  background: #fff9f5;
+  border: 1.5px solid #f0e0d8;
+  border-radius: 28px;
+  box-shadow: 0 8px 40px rgba(180, 130, 110, 0.1);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  width: 95%;
+  max-width: 800px;
+  height: 95%;
+  max-height: 800px;
+  overflow: hidden;
+}
+
+.progress-bar-wrap {
+  width: 100%;
+  height: 6px;
+  background: #f0e0d8;
+  border-radius: 99px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.progress-bar {
+  height: 100%;
+  background: #f9a898;
+  border-radius: 99px;
+  transition: width 0.4s ease;
+}
+
+.progress-label {
+  font-family: 'Kiwi Maru', serif;
+  font-size: 0.7rem;
+  color: #9b7b8e;
+  align-self: flex-end;
+  margin-top: 0.3rem;
+  margin-bottom: 0.5rem;
+  flex-shrink: 0;
+}
+
+.animal-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.animal-wrap img {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+  animation: bobble 3.5s ease-in-out infinite;
+}
+
+@keyframes bobble {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+
+
+.question-text {
+  font-family: 'Schoolbell', serif;
+  font-size: 1.1rem;
+  color: #3a2f45;
+  text-align: center;
+  line-height: 1.5;
+  max-width: 100%;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 0.8rem;
+  width: 100%;
+  max-width: 700px;
+}
+
+.option {
+  display: flex;
+  cursor: pointer;
+}
+
+.option input[type="radio"] {
+  display: none;
+}
+
+.option span {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border: 1.5px solid #d4bfb8;
+  border-radius: 99px;
+  font-family: 'Kiwi Maru', serif;
+  font-size: 0.75rem;
+  color: #3a2f45;
+  line-height: 1.4;
+  text-align: center;
+  transition: background 0.18s, border-color 0.18s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+}
+
+
+.option:hover span {
+  border-color: #f9a898;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  width: 100%;
+  margin-top: 1.2rem;
+}
+
+.btn-nav {
+  padding: 0.65rem 1.8rem;
+  border: none;
+  border-radius: 99px;
+  font-family: 'Schoolbell', cursive;
+  font-size: 1rem;
+  color: #3a2f45;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn-nav:hover {
+  opacity: 0.5;
+  color: #48434e;
+}
+
+[data-q="1"] .option input[type="radio"]:checked + span { background: #FFBFBF; border-color: #FFBFBF; }
+[data-q="2"] .option input[type="radio"]:checked + span { background: #7FB0E8; border-color: #7FB0E8; }
+[data-q="3"] .option input[type="radio"]:checked + span { background: #D6D35E; border-color: #D6D35E; }
+[data-q="4"] .option input[type="radio"]:checked + span { background: #D0CBEB; border-color: #D0CBEB; }
+[data-q="5"] .option input[type="radio"]:checked + span { background: #FFBFBF; border-color: #f9a898; }
+[data-q="6"] .option input[type="radio"]:checked + span { background: #F5D244; border-color: #e0c840; }
