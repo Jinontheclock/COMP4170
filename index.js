@@ -7,11 +7,9 @@ const app = express();
 const port = 3000;
 
 const db = new pg.Client({
-  host: "localhost",
-  port: 5432,
-  database: "quiz",
-  user: "postgres",
-  password: "123",
+  connectionString:
+    "postgresql://postgres.fcigcinspastkslabodv:lLVvOW24HUzzYRHW@aws-0-us-west-2.pooler.supabase.com:5432/postgres",
+  ssl: { rejectUnauthorized: false },
 });
 
 db.connect();
@@ -28,14 +26,18 @@ app.get("/question/:num", (req, res) => {
   const num = parseInt(req.params.num);
   if (num < 1 || num > questions.length) return res.redirect("/");
   const question = questions[num - 1];
-  const answers = req.query.answers ? req.query.answers.split(",").filter(Boolean) : [];
+  const answers = req.query.answers
+    ? req.query.answers.split(",").filter(Boolean)
+    : [];
   res.render("question", { question, num, total: questions.length, answers });
 });
 
 app.post("/question/:num", (req, res) => {
   const num = parseInt(req.params.num);
   const { answer, prevAnswers } = req.body;
-  const allAnswers = prevAnswers ? [...prevAnswers.split(",").filter(Boolean), answer] : [answer];
+  const allAnswers = prevAnswers
+    ? [...prevAnswers.split(",").filter(Boolean), answer]
+    : [answer];
 
   if (num < questions.length) {
     res.redirect(`/question/${num + 1}?answers=${allAnswers.join(",")}`);
