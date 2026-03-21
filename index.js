@@ -76,9 +76,21 @@ app.get("/result", async (req, res) => {
 
   await db.query("INSERT INTO results (result_type) VALUES ($1)", [resultType]);
 
+  const totalResults = await db.query("SELECT COUNT(*) as total FROM results");
+  const countByType = await db.query(
+    "SELECT COUNT(*) as count FROM results WHERE result_type = $1",
+    [resultType],
+  );
+
+  const total = parseInt(totalResults.rows[0].total);
+  const count = parseInt(countByType.rows[0].count);
+
+  const percentage = Math.round((count / total) * 100);
+  const percentageStat = `${percentage}% of people have this type`;
+
   const result = animals[resultType];
 
-  res.render("result", { result });
+  res.render("result", { result, percentageStat });
 });
 
 app.listen(port, () => {
