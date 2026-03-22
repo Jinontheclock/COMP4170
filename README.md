@@ -16,7 +16,7 @@ Built the title/landing page and the question flow. The question page includes a
 ### Belinda
 **Files:** `views/result.ejs`, `animals.js`, `public/css/result.css`
 
-Handled the result page and styling. The page is a flip card — the front shows a bouncing question mark, click it and it flips to reveal your result with the animal, title, quote, description, and trait pills. Also wrote `animals.js` to store all five result types and their data, and hooked it up to the `/result` route so the right card shows based on the quiz score.
+Handled the result page and styling. The page is a flip card the front shows a bouncing question mark, click it and it flips to reveal your result with the animal, title, quote, description, and trait pills. Also wrote `animals.js` to store all five result types and their data, and hooked it up to the `/result` route so the right card shows based on the quiz score.
 
 ---
 
