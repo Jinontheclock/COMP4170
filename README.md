@@ -30,10 +30,10 @@ Handled the file structure, dependencies, database, and result stat. Created dat
 
 ---
 
-### [Teammate Name]
+### Hajin
 
-**Files:** `file1`, `file2`
+**Files:** `public/css/question.css`, `public/css/title.css`, `index.js`
 
-[Description of what you worked on and how it fits into the project.]
+Implemented the core quiz logic that determines the final result. Each answer choice contributes a score to its corresponding result type, and after all 6 questions are completed, the system calculates which result has the highest total score and displays it to the user. Also made minor CSS refinements to improve overall UI consistency and visual polish.
 
 ---
